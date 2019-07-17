@@ -1,1 +1,12 @@
-修改成功啦，哈哈哈啊
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn package';
+                dfdfdfdfd
+            }
+        }
+    }
+}
