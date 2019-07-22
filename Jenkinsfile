@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent zxp_node1
 
     stages {
         stage('Build') {
