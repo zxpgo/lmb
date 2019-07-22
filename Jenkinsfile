@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent una
 
     stages {
         stage('Build') {
@@ -7,6 +7,7 @@ pipeline {
                 sh 'mvn package';
             }
             //hhhh
+            //test
         }
     }
 }
