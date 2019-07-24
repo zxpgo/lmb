@@ -10,11 +10,14 @@ pipeline {
             //hhhh
             //test
         }
+        
         stage('Build Docker'){
-            def customImage = docker.build('test_image')
-            docker.withRegistry('https://index.docker.io/v1/','docker-registry'){
-                customImage.push()
-                customImage.push(latest)
+            steps{
+                def customImage = docker.build('test_image')
+                docker.withRegistry('https://index.docker.io/v1/','docker-registry'){
+                    customImage.push()
+                    customImage.push(latest)
+                }
             }
         }
     }
