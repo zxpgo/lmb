@@ -13,13 +13,21 @@ pipeline {
         
         stage('Build Docker'){
             steps{
+                docker.build('test_image')
                 /*docker.withRegistry('https://index.docker.io/v1/', 'docker-registry'){
                     def customImage = docker.build('test_image')
                     customImage.push()
                     customImage.push(latest)
             }*/
-                    echo 'hello world'
+                 echo 'build docker'
                
+            }
+        }
+        
+        stage('Deploy'){
+            steps{
+                
+                echo 'deploy'
             }
         }
     }
