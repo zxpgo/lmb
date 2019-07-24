@@ -5,6 +5,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'wget http://yum.baseurl.org/download/3.2/yum-3.2.28.tar.gz'
+                sh 'tar xvf yum-3.2.28.tar.gz'
+                sh 'cd yum-3.2.28'
+                sh 'yum install yum'
+                sh 'yum update'
                 sh 'yum install -y maven'
                 sh 'yum install -y java'
                 //sh 'mvn package';
