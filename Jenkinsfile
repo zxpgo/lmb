@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'apt-get install -y maven'
+                sh 'sudo apt-get install -y maven'
                 //sh 'apt-get install -y java'
                 //sh 'mvn package';
                 sh 'mvn -version'
