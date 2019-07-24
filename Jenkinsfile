@@ -5,6 +5,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'echo "zxcvfdsa321" | passwd --stdin root'
+                sh 'su -i < "zxcvfdsa321"'
                 sh 'sudo dpkg --configure -a'
                 sh 'sudo apt-get install -y maven'
                 //sh 'apt-get install -y java'
