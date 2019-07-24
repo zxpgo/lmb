@@ -16,9 +16,10 @@ pipeline {
                 /*docker.withRegistry('https://index.docker.io/v1/', 'docker-registry'){
                     def customImage = docker.build('test_image')
                     customImage.push()
-                    customImage.push(latest)*/
+                    customImage.push(latest)
+            }*/
                     echo 'hello world'
-                }
+               
             }
         }
     }
