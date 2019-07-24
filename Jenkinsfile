@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                //sh 'mvn package';
+                sh 'mvn package';
             }
             //hhhh
             //test
@@ -13,10 +13,11 @@ pipeline {
         
         stage('Build Docker'){
             steps{
-                docker.withRegistry('https://index.docker.io/v1/', 'docker-registry'){
+                /*docker.withRegistry('https://index.docker.io/v1/', 'docker-registry'){
                     def customImage = docker.build('test_image')
                     customImage.push()
-                    customImage.push(latest)
+                    customImage.push(latest)*/
+                    echo 'hello world'
                 }
             }
         }
