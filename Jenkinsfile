@@ -5,8 +5,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'yum install -y maven'
+                sh 'yum install -y java'
                 //sh 'mvn package';
-                //sh 'mvn -version'
+                sh 'mvn -version'
                 sh 'java -version'
             }
             //hhhh
