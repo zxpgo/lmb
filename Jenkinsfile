@@ -13,7 +13,8 @@ pipeline {
         
         stage('Build Docker'){
             steps{
-                docker.build('test_image')
+                /*构建镜像*/
+                /*推送镜像*/
                 /*docker.withRegistry('https://index.docker.io/v1/', 'docker-registry'){
                     def customImage = docker.build('test_image')
                     customImage.push()
@@ -26,7 +27,12 @@ pipeline {
         
         stage('Deploy'){
             steps{
+                /*部署镜像*/
+                /*
+                if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
                 
+                }
+                */
                 echo 'deploy'
             }
         }
