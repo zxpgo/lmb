@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        label 'docker_slave'
+        label 'zxp_node1'
     }
     stages {
         stage('Build') {
