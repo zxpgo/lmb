@@ -13,14 +13,16 @@ pipeline {
         
         stage('Build Docker'){
             steps{
+                echo 'build docker'
                 /*构建镜像*/
                 /*推送镜像*/
-                /*docker.withRegistry('https://index.docker.io/v1/', 'docker-registry'){
-                    def customImage = docker.build('test_image')
-                    customImage.push()
-                    customImage.push(latest)
-            }*/
-                 echo 'build docker'
+                script{
+                    docker.withRegistry('https://index.docker.io/v1/', 'docker-registry'){
+                        def customImage = docker.build('test_image')
+                        customImage.push()
+                        customImage.push(latest)
+                    }
+                }
                
             }
         }
