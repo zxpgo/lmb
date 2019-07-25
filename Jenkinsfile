@@ -34,7 +34,7 @@ node('zxp_node2'){
         stage('Deploy'){
                 echo 'Deploy'
                 sh 'docker pull zxpwin/jenskin-slave-zxp'
-                sh 'docker run -p 8082:8082 -i -t  zxpwin/jenskin-slave-zxp  /bin/bash'
+                sh 'docker run -d -p 8082:8082 -i -t  zxpwin/jenskin-slave-zxp  /bin/bash'
                 sh 'systemctl start httpd'
         }
 }
