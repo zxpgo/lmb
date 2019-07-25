@@ -14,11 +14,9 @@ node('zxp_node1'){
                 echo 'build docker'
                 /*构建镜像*/
                 sh 'whoami'
-                //sh '/etc/init.d/docker start'
-                sh 'docker images'
-                sh 'docker build -t zxp_test_docker .'
+                sh 'docker build -t zxp_test_docker_1 .'
                 /*推送镜像*/
-                sh 'docker tag zxp_test_docker zxpwin/zxp_test_docker_1'
+                sh 'docker tag zxp_test_docker_1 zxpwin/zxp_test_docker_1'
                 sh 'docker login -u zxpwin -p yNJL4CcAa42yM72'
                 sh 'docker push zxpwin/zxp_test_docker_1'
         }
