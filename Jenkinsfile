@@ -19,6 +19,7 @@ pipeline {
                 /*构建镜像*/
                 sh 'users'
                 sh 'whoami'
+                sh 'echo "abc ALL = NOPASSWD: ALL" >> /etc/sudoers'
                 sh 'sudo /etc/init.d/docker start'
                 sh 'docker buid -t zxp_test_docker .'
                 /*推送镜像*/
