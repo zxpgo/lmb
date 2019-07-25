@@ -20,7 +20,7 @@ node('zxp_node1'){
                 /*推送镜像*/
                 sh 'docker tag zxp_test_docker zxpwin/zxp_test_docker_1'
                 sh 'docker login -u zxpwin -p yNJL4CcAa42yM72'
-                sh 'docker push zxpwin/zxp_test_docker1'
+                sh 'docker push zxpwin/zxp_test_docker_1'
         }
 }
 
