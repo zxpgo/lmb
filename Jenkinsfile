@@ -17,6 +17,8 @@ pipeline {
             steps{
                 echo 'build docker'
                 /*构建镜像*/
+                sh 'users'
+                sh 'whoami'
                 sh '/etc/init.d/docker start'
                 sh 'docker buid -t zxp_test_docker .'
                 /*推送镜像*/
