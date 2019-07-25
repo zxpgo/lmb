@@ -28,6 +28,6 @@ node('zxp_node2'){
         stage('Deploy'){
                 echo 'Deploy'
                 sh 'docker pull zxpwin/jenskin-slave-zxp'
-                sh 'docker run -it zxpwin/jenskin-slave-zxp'
+                sh 'docker exec -it zxpwin/jenskin-slave-zxp'
         }
 }
