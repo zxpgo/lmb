@@ -5,15 +5,6 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                /*sh 'sudo rm -rf /var/lib/dpkg/lock'
-                sh 'sudo rm -rf /var/cache/apt/archives/lock'
-                sh 'sudo apt-get update'
-                sh 'sudo dpkg --configure -a'
-                //sh 'echo 'root:zxcvfdsa321' | chpasswd '
-                //sh 'su -i < "zxcvfdsa321"'
-                //sh 'sudo dpkg --configure -a'*/
-                sh 'apt-get install -y maven'
-                //sh 'apt-get install -y java'
                 //sh 'mvn package';
                 sh 'mvn -version'
                 sh 'java -version'
