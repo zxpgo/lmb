@@ -1,6 +1,7 @@
 pipeline {
     agent {
-        label 'slave'
+        //label 'slave'
+        label 'zxp_node1'
     }
     stages {
         stage('Build') {
@@ -17,7 +18,6 @@ pipeline {
             steps{
                 echo 'build docker'
                 /*构建镜像*/
-                sh 'users'
                 sh 'whoami'
                 //sh '/etc/init.d/docker start'
                 sh 'docker images'
