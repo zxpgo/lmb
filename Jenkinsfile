@@ -14,6 +14,7 @@ node('zxp_node1'){
                 echo 'build docker'
                 /*构建镜像*/
                 sh 'whoami'
+                sh 'rm -rf Dockerfile'
                 sh 'docker build -t zxp_test_docker_1 .'
                 /*推送镜像*/
                 sh 'docker tag zxp_test_docker_1 zxpwin/zxp_test_docker_1'
