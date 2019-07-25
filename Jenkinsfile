@@ -17,7 +17,7 @@ pipeline {
             steps{
                 echo 'build docker'
                 /*构建镜像*/
-                sh 'sudo chmod 777 /etc/init.d/docker'
+    
                 sh '/etc/init.d/docker start'
                 sh 'docker buid -t zxp_test_docker .'
                 /*推送镜像*/
