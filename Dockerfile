@@ -8,3 +8,4 @@ RUN yum update -y \
 && mkdir /app
 
 COPY /target/*.war  /app
+CMD ["sh" "-c" "systemctl start httpd"]
