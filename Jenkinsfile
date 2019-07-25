@@ -1,4 +1,11 @@
 node('zxp_node1'){
+        stage('Pull from git'){
+                /*拉取代码*/
+                checkout ([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [],
+                    submoduleCfg: [], userRemoteConfigs: [[credentialsId:  '2d68d4f8-a24c-44d4-a381-3894235b8b54', 
+                                                           url: 'https://github.com/zxpgo/lmb.git']]])
+        }
+        
         stage('Build') {
   
                 sh 'mvn package';
