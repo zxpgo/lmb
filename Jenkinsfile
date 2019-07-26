@@ -35,8 +35,6 @@ node('zxp_node2'){
                 echo 'Deploy'
                 sh 'docker pull zxpwin/zxp_test_docker_1'
                 sh 'docker run -p 8080:8080 -itd  --privileged=true --name=docker_test zxpwin/zxp_test_docker_1:latest /usr/sbin/init'
-             
-                sh 'docker exec -it docker_test /bin/bash'
                 sh 'systemctl start tomcat'
                 sh 'systemctl status tomcat'
 
