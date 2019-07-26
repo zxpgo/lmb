@@ -36,6 +36,7 @@ node('zxp_node2'){
                 sh 'docker pull zxpwin/zxp_test_docker_1'
                 sh 'docker run -p 8080:8080 -itd  --privileged=true zxpwin/zxp_test_docker_1:latest /usr/sbin/init'
                 sh 'systemctl start tomcat'
+                sh 'systemctl enable tomcat'
                 sh 'systemctl status tomcat'
 
         }
