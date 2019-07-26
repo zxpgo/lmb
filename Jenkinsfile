@@ -1,4 +1,4 @@
-node('slave'){
+node('zxp_node1'){
         stage('Pull from git'){
                 /*拉取代码*/
                 checkout ([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [],
