@@ -5,7 +5,7 @@ FROM centos
 RUN yum update -y \
 && yum install -y java \
 && yum install -y tomcat\
-&& && yum install tomcat-webapps tomcat-admin-webapps 
+&& yum install tomcat-webapps tomcat-admin-webapps 
 
 COPY /target/*.war  /usr/share/tomcat/webapps/
 
