@@ -10,5 +10,5 @@ RUN yum update -y \
 
 COPY /target/*.war  /usr/share/tomcat/webapps/
 
-#CMD ["sh" "-c" "systemctl start tomcat"]
-ENTRYPOINT ["/usr/sbin/init"]
+CMD ["sh" "-c" "systemctl start tomcat"]
+#ENTRYPOINT ["/usr/sbin/init"]
