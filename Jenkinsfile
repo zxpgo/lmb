@@ -34,7 +34,7 @@ node('zxp_node2'){
         stage('Deploy'){
                 echo 'Deploy'
                 sh 'docker pull zxpwin/zxp_test_docker_1'
-                sh 'docker run --privileged=true -itd -p 8080:8080  zxpwin/zxp_test_docker_1:latest  /bin/bash /usr/sbin/init'
+                sh 'docker run --privileged=true -itd -p 8080:8080  zxpwin/zxp_test_docker_1:latest /usr/sbin/init'
                 ///usr/sbin/init -v /var/run/docker.sock:/var/run/docker.sock 
                 /*sh 'systemctl enable tomcat'
                 sh 'systemctl start tomcat'
