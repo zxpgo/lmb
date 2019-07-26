@@ -33,7 +33,7 @@ node('zxp_node1'){
 node('zxp_node2'){
         stage('Deploy'){
                 echo 'Deploy'
-                sh 'docker pull zxpwin/zxpwin/zxp_test_docker_1'
+                sh 'docker pull zxpwin/zxp_test_docker_1'
                 sh 'docker run -d -p 8080:8080 -i -t  zxpwin/zxpwin/zxp_test_docker_1  /bin/bash'
                 sh 'systemctl start tomcat'
                 sh 'systemctl status tomcat'
