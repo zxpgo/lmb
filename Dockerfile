@@ -10,5 +10,5 @@ RUN yum update -y \
 
 COPY /target/*.war  /usr/share/tomcat/webapps/
 
-CMD ["sh" "-c" "/bin/bash"]
-ENTRYPOINT ["/bin/bash"]
+#CMD ["sh" "-c" "/bin/bash"]
+#ENTRYPOINT ["/bin/bash"]
