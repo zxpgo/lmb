@@ -7,8 +7,9 @@ RUN yum update -y \
 && yum install -y tomcat\
 && yum install -y tomcat-webapps tomcat-admin-webapps \
 && systemctl enable tomcat
+&& systemctl start tomcat
 
 COPY /target/*.war  /usr/share/tomcat/webapps/
 
-#CMD ["sh" "-c" "systemctl start tomcat"]
+CMD ["sh" "-c" "systemctl start tomcat"]
 #ENTRYPOINT ["/bin/bash"]
