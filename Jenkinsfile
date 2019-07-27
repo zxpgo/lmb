@@ -1,4 +1,4 @@
-node('zxp_node1'){
+node('slave'){
         stage('Pull from git'){
                 /*拉取代码*/
                 checkout ([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [],
@@ -17,7 +17,7 @@ node('zxp_node1'){
         }
         
         stage('Build Docker'){
-
+                sh 'exit'
                 echo 'build docker'
                 /*构建镜像*/
                 sh 'whoami'
