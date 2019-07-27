@@ -18,6 +18,7 @@ node('zxp_node1'){
                 sh 'mvn package';
                 //sh 'mvn -version'
                 //sh 'java -version'
+                sh 'mkdir /home/jenkins'
                 sh 'cp target/*.war /home/jenkins/'
             //hhhh
             //test
