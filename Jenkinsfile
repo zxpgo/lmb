@@ -14,10 +14,10 @@ node('zxp_node1'){
         }
         
         stage('Build') {
-  
+               
                 sh 'mvn package';
                 //sh 'mvn -version'
-                //sh 'java -version'
+                sh 'java -version'
                 
                 //sh 'cp target/*.war /home/jenkins/'
             //hhhh
