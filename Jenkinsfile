@@ -1,4 +1,4 @@
-node('zxp_slave'){
+node('zxp_node1'){
         /*stage('Environment'){
                 sh 'echo "FROM jenkins/ssh-slave \n RUN apt-get update && apt-get install -y sudo && apt-get install -y maven " > Dockerfile'
                 sh 'docker build -t environment .'
@@ -24,7 +24,7 @@ node('zxp_slave'){
             //test
         }
 }
-node('zxp_node3'){ 
+node('zxp_node1'){ 
         stage('Build Docker'){
                 //sh 'exit'
                 echo 'build docker'
