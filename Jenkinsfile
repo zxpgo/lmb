@@ -25,9 +25,11 @@ node('slave'){
         }
         
         stage('Build Docker'){
-                sh 'exit'
+                //sh 'exit'
                 echo 'build docker'
                 /*构建镜像*/
+                sh 'systemctl start docker'
+                sh 'systemctl status docker'
                 sh 'whoami'
                 //sh 'rm -rf Dockerfile'
                 sh 'docker build -t zxp_test_docker_1 .'
