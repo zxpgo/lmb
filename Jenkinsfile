@@ -3,7 +3,7 @@ node('zxp_node1'){
                 sh 'echo "FROM jenkins/ssh-slave \n RUN apt-get update && apt-get install -y sudo && apt-get install -y maven " > Dockerfile'
                 sh 'docker build -t environment .'
                 sh 'rm -rf Dockerfile'
-                sh 'docker run --privileged=true -itd  environment:latest /bin/bash'
+                sh 'docker run --privileged=true -it  environment:latest /bin/bash'
                 
         }
         stage('Pull from git'){
