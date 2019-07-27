@@ -1,5 +1,6 @@
 node('zxp_node1'){
         stage('Environment'){
+                sh 'mkdir /home/jenkins'
                 sh 'echo "FROM jenkins/ssh-slave \n RUN apt-get update && apt-get install -y sudo && apt-get install -y maven " > Dockerfile'
                 sh 'docker build -t environment .'
                 sh 'rm -rf Dockerfile'
@@ -18,7 +19,7 @@ node('zxp_node1'){
                 sh 'mvn package';
                 //sh 'mvn -version'
                 //sh 'java -version'
-                sh 'mkdir /home/jenkins'
+                
                 sh 'cp target/*.war /home/jenkins/'
             //hhhh
             //test
