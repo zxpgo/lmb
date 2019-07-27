@@ -1,4 +1,8 @@
-node('slave'){
+node('zxp_node1'){
+        stage('Environment'){
+                sh 'docker build -t environment -f Dockerfile_1'
+                sh 'docker run --privileged=true -itd  environment:latest /bin/bash'
+        }
         stage('Pull from git'){
                 /*拉取代码*/
                 checkout ([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [],
