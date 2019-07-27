@@ -8,7 +8,7 @@ RUN yum update -y \
 && yum install -y tomcat-webapps tomcat-admin-webapps \
 && systemctl enable tomcat 
 
-COPY /home/jenkins/*.war  /usr/share/tomcat/webapps/
+COPY /target/*.war  /usr/share/tomcat/webapps/
 
 #CMD ["sh" "-c" "/bin/bash"]
 #ENTRYPOINT ["/bin/bash"]
