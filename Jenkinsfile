@@ -1,6 +1,6 @@
 node('zxp_node1'){
         stage('Environment'){
-                sh 'docker build -t environment -f Dockerfile_1'
+                sh 'docker build -t environment -f /src/main/Dockerfile'
                 sh 'docker run --privileged=true -itd  environment:latest /bin/bash'
         }
         stage('Pull from git'){
@@ -15,7 +15,7 @@ node('zxp_node1'){
                 sh 'mvn package';
                 //sh 'mvn -version'
                 //sh 'java -version'
-            
+                sh 'target/*.war /home/jenkins/'
             //hhhh
             //test
         }
