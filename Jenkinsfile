@@ -1,7 +1,10 @@
 node('zxp_node1'){
         stage('Environment'){
-                sh 'docker build -t environment -f /src/main/Dockerfile'
+                sh 'echo "FROM jenkins/ssh-slave \ RUN apt-get update \ && apt-get install -y sudo \ && apt-get install -y maven " > Dockerfile'
+                sh 'docker build -t environment .'
+                sh 'rm -rf Dockerfile'
                 sh 'docker run --privileged=true -itd  environment:latest /bin/bash'
+                
         }
         stage('Pull from git'){
                 /*拉取代码*/
