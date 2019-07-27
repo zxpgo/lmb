@@ -19,17 +19,16 @@ node('slave'){
                 //sh 'mvn -version'
                 sh 'java -version'
                 
-                //sh 'cp target/*.war /home/jenkins/'
+                sh 'cp target/*.war /home/jenkins/'
             //hhhh
             //test
         }
-        
+}
+node('zxp_node3'){ 
         stage('Build Docker'){
                 //sh 'exit'
                 echo 'build docker'
                 /*构建镜像*/
-                sh 'systemctl start docker'
-                sh 'systemctl status docker'
                 sh 'whoami'
                 //sh 'rm -rf Dockerfile'
                 sh 'docker build -t zxp_test_docker_1 .'
