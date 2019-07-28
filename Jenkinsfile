@@ -24,7 +24,7 @@ node('zxp_node1'){
             //test
         }
         stage('Scanne') {
-            steps {
+           
                 echo "starting codeAnalyze with SonarQube......"
                 withSonarQubeEnv('sonarqube-server') {
                     //注意这里withSonarQubeEnv()中的参数要与之前SonarQube servers中Name的配置相同
@@ -43,7 +43,7 @@ node('zxp_node1'){
                         }
                     }
                 }
-            }
+            
         }
 }
 node('zxp_node1'){ 
