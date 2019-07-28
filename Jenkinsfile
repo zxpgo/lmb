@@ -41,8 +41,6 @@ node('zxp_slave'){
         }
             
     }
-	
-
 }
 
 node('zxp_node3'){ 
