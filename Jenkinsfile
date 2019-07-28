@@ -22,7 +22,7 @@ node('zxp_node3'){
         sh 'cp target/*.war /home/jenkins/'
     }
     
-    stage('Scanne') {
+    stage('Scan') {
         echo "starting codeAnalyze with SonarQube......"
         withSonarQubeEnv('sonarqube-server') {
             //注意这里withSonarQubeEnv()中的参数要与之前SonarQube servers中Name的配置相同
