@@ -62,6 +62,9 @@ node('zxp_node2'){
         sh 'docker pull zxpwin/zxp_test_docker_1'
         sh 'docker run --privileged=true -itd -p 8080:8080 zxpwin/zxp_test_docker_1:latest /usr/sbin/init'
         sh '/bin/bash'
+	sh 'cd /'
+	sh 'cd /usr/share/tomcat/bin'
+	sh './startup.sh'
         ///usr/sbin/init -v /var/run/docker.sock:/var/run/docker.sock   -v /usr/share/tomcat:/usr/share/tomcat
         /*sh 'systemctl enable tomcat'
         sh 'systemctl start tomcat'
