@@ -1,5 +1,4 @@
-//node('zxp_node3'){
-node('zxp_slave'){
+node('build_docker_node'){
 
     /*stage('Environment'){
 		sh 'echo "FROM jenkins/ssh-slave \n RUN apt-get update && apt-get install -y sudo && apt-get install -y maven " > Dockerfile'
@@ -8,20 +7,21 @@ node('zxp_slave'){
 		sh 'docker run --privileged=true -itd  environment:latest /bin/bash'
 	}*/
         
-     stage('Pull from git'){
+     stage('Clone'){
         /*拉取代码*/
         checkout ([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [],
-		submoduleCfg: [], userRemoteConfigs: [[credentialsId:  '2d68d4f8-a24c-44d4-a381-3894235b8b54', 
-        url: 'https://github.com/zxpgo/lmb.git']]])
+		submoduleCfg: [], userRemoteConfigs: [[credentialsId:  '96ce8238-69cc-4acf-b2e9-ae6bb3818112', 
+        url: 'https://github.com/PeterBrave/CICDserver.git']]])
      }
         
     stage('Build') {         
-        sh 'mvn package';
+        //sh 'mvn package'
+	sh 'mvn war:war'
         //sh 'mvn -version'
         sh 'java -version'         
-        sh 'cp target/*.war /home/jenkins/'
+        //sh 'cp target/*.war /home/jenkins/'
     }
-    
+    /*
     stage('Scan') {
         echo "starting codeAnalyze with SonarQube......"
         withSonarQubeEnv('sonarqube-server') {
@@ -40,10 +40,10 @@ node('zxp_slave'){
             }
         }
             
-    }
+    }*/
 }
 
-node('zxp_node3'){ 
+node('build_docker_node'){ 
     stage('Build Docker'){
         echo 'build docker'
         /*构建镜像*/
@@ -55,13 +55,16 @@ node('zxp_node3'){
     }
 }
 
-node('zxp_node2'){
+node('deploy_node'){
     stage('Deploy'){
         echo 'Deploy'
         //sh 'mkdir /usr/share/tomcat'
         sh 'docker pull zxpwin/zxp_test_docker_1'
         sh 'docker run --privileged=true -itd -p 8080:8080 zxpwin/zxp_test_docker_1:latest /usr/sbin/init bash'
-        sh '/bin/bash'
+	sh 'pwd'
+	sh './usr/share/tomcat/apache-tomcat-8.5.43/bin/startup.sh'
+	//sh 'java -jar /home/jenkins/workspace/zxp_test_slave_3/*.jar'
+	//sh 'mysqladmin -uroot password 'newpassword' '
         ///usr/sbin/init -v /var/run/docker.sock:/var/run/docker.sock   -v /usr/share/tomcat:/usr/share/tomcat
         /*sh 'systemctl enable tomcat'
         sh 'systemctl start tomcat'
